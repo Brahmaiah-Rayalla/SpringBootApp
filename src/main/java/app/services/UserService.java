@@ -186,4 +186,11 @@ public class UserService implements UserDetailsService {
     public void updateProfilePicture(User user, String profilePicture) {
         this.repo.updateProfilePicture(user.getUserName(), profilePicture);
     }
+
+	public User getUserByUserName(String userName) {
+		if(userName != null) {
+			return this.repo.findOneByUserName(userName);
+		}
+		return null;
+	}
 }

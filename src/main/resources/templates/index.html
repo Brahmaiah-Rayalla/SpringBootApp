@@ -1,15 +1,31 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout">
+<html xmlns:th="http://www.thymeleaf.org"
+	xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
+	layout:decorator="layout">
 <head>
 <title>HOME</title>
 </head>
 <body>
-    <div layout:fragment="content">
-        <h1>Welcome to Test App</h1>
-        <h3>
-         <p class="pull-right" th:if="${g_user}">
-            Logged in as: <span th:text="${g_user.userName}"></span>
-        </p></h3>
-    </div>
+	<div layout:fragment="content">
+		<h1>Welcome to Test App</h1>
+		<ul >
+			<li><a
+				href="https://www.facebook.com/"><i
+					class="fa fa-facebook" aria-hidden="true"></i></a></li>
+			<li><a href="#"><i class="fa fa-twitter" aria-hidden="true"></i></a></li>
+			<li><a href="#"><i class="fa fa-google-plus"
+					aria-hidden="true"></i></a></li>
+			<li><a
+				href="https://www.linkedin.com/"><i
+					class="fa fa-linkedin" aria-hidden="true"></i></a></li>
+			<li><a href="#"><i class="fa fa-instagram"
+					aria-hidden="true"></i></a></li>
+		</ul>
+		<h3>
+			<p class="pull-right" th:if="${g_user}">
+				Logged in as: <span th:text="${g_user.userName}"></span>
+			</p>
+		</h3>
+	</div>
 </body>
 </html>

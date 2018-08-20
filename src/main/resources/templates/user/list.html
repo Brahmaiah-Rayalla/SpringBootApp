@@ -3,38 +3,56 @@
     xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout"
     layout:decorator="layout">
 <head>
-<title>USER LIST</title>
+<title>USERS LIST</title>
+<style>
+.avatar {
+    vertical-align: middle;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+}
+
+</style>
+
 </head>
 <body>
     <div layout:fragment="content">
-        <h1>USER LIST</h1>
+        <h1>USERS LIST</h1>
 
         <div class="table-responsive">
             <table class="table table-striped">
                 <thead>
                     <tr>
+                    	<th></th>
                         <th>User</th>
                         <th>Email</th>
                         <th>First Name</th>
                         <th>Last Name</th>
                         <th>Last Login</th>
                         <th>Group Name</th>
-                        <th th:if="${g_user.isAdmin()}">Delete</th>
+                       <!--  <th th:if="${g_user.isAdmin()}">Delete</th>
                         <th th:if="${g_user.isAdmin()}">Edit</th>
+                        <th th:if="${g_user.isAdmin()}">Login as</th> -->
+                        <th>Delete</th>
+                        <th>Edit</th>
                         <th th:if="${g_user.isAdmin()}">Login as</th>
                     </tr>
                 </thead>
                 <tbody>
                     <tr th:each="user : ${users}">
-                        <td th:text="${user.userName}">user</td>
+                    	<td><img th:src="@{/user/profile-picture/{userName}(userName=${user.userName})}" onerror="this.src='/images/avatar.png'"  class="avatar"/></td>
+                        <td th:text="${user.userName}">>user</td>
                         <td th:text="${user.email}">email</td>
                         <td th:text="${user.firstName}">first name</td>
                         <td th:text="${user.lastName}">last name</td>
                         <td th:text="${user.lastLogin}">last login</td>
                         <td th:text="${user.groupName}">Group Name</td>
-                        <td th:if="${g_user.isAdmin()}"><a th:href="@{/user/delete(id=${user.id})}">Delete</a></td>
-                        <td th:if="${g_user.isAdmin()}"><a th:href="@{/user/edit/{id}(id=${user.id})}">Edit</a></td>
-                        <td th:if="${g_user.isAdmin()}"><a th:href="@{/user/autologin(userName=${user.userName})}">Login As</a></td>
+                       <!--  <td th:if="${g_user.isAdmin()}"><a th:href="@{/user/delete(id=${user.id})}" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle"> Delete</span></a></td>
+                        <td th:if="${g_user.isAdmin()}"><a th:href="@{/user/edit/{id}(id=${user.id})}" class="btn btn-info"><span class="glyphicon glyphicon-edit"> Edit</span></a></td>
+                        <td th:if="${g_user.isAdmin()}"><a th:href="@{/user/autologin(userName=${user.userName})}" class="btn btn-primary"><span class="glyphicon glyphicon-user"> Login As</span></a></td> -->
+                        <td><a th:href="@{/user/delete(id=${user.id})}" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle"> Delete</span></a></td>
+                        <td><a th:href="@{/user/edit/{id}(id=${user.id})}" class="btn btn-info"><span class="glyphicon glyphicon-edit"> Edit</span></a></td>
+                        <td th:if="${g_user.isAdmin()}"><a th:href="@{/user/autologin(userName=${user.userName})}" class="btn btn-primary"><span class="glyphicon glyphicon-user"> Login As</span></a></td>
                     </tr>
                 </tbody>
             </table>

@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout">
-<head>
+<head>	
 <title>REGISTER</title>
+<style></style>
 </head>
 <body>
     <div layout:fragment="content">
@@ -14,11 +15,14 @@
                 <div th:if="${#fields.hasErrors('password')}" th:errors="*{password}">Password error</div>
                 <div th:if="${#fields.hasErrors('groupName')}" th:errors="*{groupName}">GroupName error</div>
             </div>
-            
-            <input type="text" id="inputEmail" name="email" class="form-control top" placeholder="Email" required="required" autofocus="autofocus"/>
-            <input type="text" id="inputUser" name="userName" class="form-control middle" placeholder="Username" required="required"/>
-            <input type="password" id="inputPassword" name="password" class="form-control bottom" placeholder="Password" required="required"/>
-            <input type="text" id="inputGroupName" name="groupName" class="form-control middle" placeholder="Groupname" required="required"/>
+             <p><span class="fa fa-envelope" style="font-size:24px"> </span> Enter Email:</p>
+            <input type="text" id="inputEmail" name="email" class="form-control top" placeholder="" required="required" autofocus="autofocus"/>
+            <p><span class="fa fa-user" style="font-size:24px"> </span> Enter UserName:</p>
+            <input type="text" id="inputUser" name="userName" class="form-control middle" placeholder="" required="required"/>
+            <p><span class="fa fa-lock" style="font-size:24px"> </span> Enter Password:</p>
+            <input type="password" id="inputPassword" name="password" class="form-control bottom" placeholder="" required="required"/>
+           <p><span class="fa fa-group" style="font-size:24px"> </span> Enter GroupName:</p>
+            <input type="text" id="inputGroupName" name="groupName" class="form-control middle" placeholder="" required="required"/>
 
             <button class="btn btn-lg btn-primary btn-block" type="submit">Register</button>
         </form>

@@ -290,4 +290,15 @@ public class UserController {
             return null;
         }
     }
+    
+    @RequestMapping(value="/user/profile-picture/{userName}", method = RequestMethod.GET, produces = MediaType.IMAGE_JPEG_VALUE)
+    public @ResponseBody byte[] userProfilePicture(@PathVariable("userName") String userName) throws IOException {
+        User u = userService.getUserByUserName(userName);
+        String profilePicture = userRoot + File.separator + u.getId() + File.separator + u.getProfilePicture();
+        if(new File(profilePicture).exists()) {
+            return IOUtils.toByteArray(new FileInputStream(profilePicture));
+        } else {
+            return null;
+        }
+    }
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout">
+<html xmlns:th="http://www.thymeleaf.org" xmlns:layout="http://www.ultraq.net.nz/web/thymeleaf/layout" layout:decorator="layout" lang="en">
 <head>
 <title>LOGIN</title>
 </head>
@@ -12,13 +12,16 @@
             <div class="alert alert-danger" th:if="${param.error}">
                 Email and password is incorrect or your account is not activated, please try again.
             </div>
-            <input type="text" id="inputEmail" name="username" class="form-control top" placeholder="Username or Email" required="required" autofocus="autofocus"/>
-            <input type="password" id="inputPassword" name="password" class="form-control bottom" placeholder="Password" required="required"/>
+             <p><span class="fa fa-user" style="font-size:24px"> </span> Enter UserName:</p>
+            <input type="text" id="inputEmail" name="username" class="form-control" placeholder="" required="required" autofocus="autofocus"/>
+            <p><span class="fa fa-lock" style="font-size:24px"> </span> Enter Password:</p>
+            <input type="password" id="inputPassword" name="password" class="form-control" placeholder="" required="required"/>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" name="remember-me"/> Remember me
                 </label>
             </div>
+            <p >Not a Member <a th:href="@{/user/register}" href="register">Register</a> here</p>
             <button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
         </form>
 
