@@ -13,3 +13,8 @@ Features:
 * Edit Profile
 * Upload Profile Picture
 * Admins can login as other users using "Login As" link in the user editor.
+New 
+* Added Bootstrap glyphi icons and other styles
+* Added user avatar
+
+
