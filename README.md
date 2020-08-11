@@ -1,8 +1,11 @@
+## Simple Spring Boot App end to end
 Simple starter app for Spring MVC (using spring boot)
 
 Uses thymeleaf for templating, I find this template engine very easy to use and outputs clean html with error checking.
 H2 or Mysql for DB, configure it via application.properties
 
+## Demo URL
+https://springboorapp.herokuapp.com/login
 
 Features:
 
